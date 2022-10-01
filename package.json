@@ -21,5 +21,22 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
-  "private": true
+  "private": true,
+  "description": "Quiz App React Native Project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevHumbleChris/quiz-app-react-native.git"
+  },
+  "keywords": [
+    "quiz-app-rn",
+    "quiz-app",
+    "react-native",
+    "react"
+  ],
+  "author": "AmChrisKE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevHumbleChris/quiz-app-react-native/issues"
+  },
+  "homepage": "https://github.com/DevHumbleChris/quiz-app-react-native#readme"
 }
