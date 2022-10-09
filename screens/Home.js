@@ -14,22 +14,22 @@ const categoryOptions = [
   {
     name: "Sports",
     iconName: "volleyball-ball",
-    artImage: 'https://ouch-cdn2.icons8.com/epCMmA426R_Nx7FWx9xH_pOasbmJFWV5hK80wCYArSQ/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNTAv/MDczZWE2ODItMGZk/ZS00MjZhLWFkY2It/ZTJkYzE2YjNlOTYx/LnN2Zw.png'
+    artImage: 'https://ouch-cdn2.icons8.com/uwjs86tsBwFu_A-QHe0y8tSN7c0CExaL6v9gGJvvDhg/rs:fit:256:482/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTUz/Lzc4MjA0OWIwLTM4/MmItNGFhYi1iZmNk/LTIxNjg4NjRmNDMx/Zi5wbmc.png'
   },
   {
     name: "Music",
     iconName: "headphones",
-    artImage: 'https://ouch-cdn2.icons8.com/-lvJIK7J9cDu-ug_ogwwAliJPket8kVclxA8bEKkvPA/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzM1/L2QzZTRhODBkLTgw/NTUtNGZkYi04Yzkx/LTNmNWU1YzQzZmMy/MS5zdmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/bmh7bFhZflURB1E_rJ_yesld5LLsGTwGWOTfQ2CmKiw/rs:fit:256:291/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNjI0/Lzc0MWVkMWM4LWJj/MGQtNDM0ZC05ZmI1/LTc5NDFhYTVjNzRh/YS5wbmc.png'
   },
   {
     name: "Science",
     iconName: "flask",
-    artImage: 'https://ouch-cdn2.icons8.com/qQebSPQnwX94FLTYeTGsJGqSL4i3OQowuvIyi7CssTM/rs:fit:256:192/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNjc5/L2MzM2FmZjExLTgw/NDItNDBkZC1iMzU4/LWYwMjY5NDIyNWIw/YS5zdmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/tKSn64YPQRspDqKEtYQflqhv_ALoQUlLP-yC0WjUKY8/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzk0/L2QyZTBlZTcwLTM1/MjAtNGYyNi05Y2U5/LTMwZDE3OWU1ODc3/YS5wbmc.png'
   },
   {
     name: "History",
     iconName: "landmark",
-    artImage: 'https://ouch-cdn2.icons8.com/5SZxcW9Esmct0nHurcoMQIB7dVffXqubUXKJ_yD9zoo/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNzgw/L2I3NWJiM2UxLTRk/MTctNDlhOC1iYzE3/LWUzYmIyNmNiNmFj/Ni5zdmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/-vVVU0ytD19Goilrknwy2AvD8Hdl5hOd0QA_Dfj18ds/rs:fit:256:162/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzE3/LzQ4NmM0ZmJmLTQ0/MWItNDlkOS05NzE1/LTJmYjgxNzQ5Zjg4/OS5wbmc.png'
   },
   {
     name: "Animals",
