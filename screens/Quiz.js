@@ -5,6 +5,7 @@ import { Button, Chip } from "react-native-paper";
 import tw from "twrnc";
 import axios from "axios";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
+import Questions from "../componets/Questions";
 
 export default function Quiz({ navigation, route: { params } }) {
   return (
@@ -42,35 +43,7 @@ export default function Quiz({ navigation, route: { params } }) {
           </View>
         </View>
       </View>
-      <View style={tw`bg-white rounded-xl p-3`}>
-        <View style={tw`mx-auto my-4`}>
-          <Image
-            source={{
-              uri: params.artImage,
-            }}
-            style={{
-              height: 200,
-              width: 200,
-              resizeMode: "contain",
-            }}
-          />
-        </View>
-        <View>
-          <Text style={tw`uppercase text-gray-500`}>Question 9 of 10</Text>
-          <Text style={tw`my-3 text-lg`}>{params.quizes[0].question}</Text>
-          {params.quizes[0].incorrect_answers.map((answer, i) => {
-            return (
-              <TouchableOpacity key={i} style={tw`p-2`}>
-                <Chip onPress={() => console.log("Pressed")}>{answer}</Chip>
-              </TouchableOpacity>
-            );
-          })}
-          <View style={tw`flex-row justify-between my-3`}>
-            <Button mode="contained">Back</Button>
-            <Button mode="contained">Next</Button>
-          </View>
-        </View>
-      </View>
+      <Questions quizes={params.quizes} artImage={params.artImage} />
     </SafeAreaView>
   );
 }

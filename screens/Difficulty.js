@@ -15,6 +15,7 @@ const Difficulty = ({ navigation, route: { params } }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [loadingQuiz, setLoadingQuiz] = useState(false);
   const startQuiz = async () => {
+    setLoadingQuiz(true);
     if (!selectedLevel) {
       alert("Level Required");
     } else {
@@ -23,7 +24,6 @@ const Difficulty = ({ navigation, route: { params } }) => {
       }&difficulty=${selectedLevel.toLowerCase()}&type=multiple`;
       const resp = await axios.get(url);
       const respData = resp.data.results;
-      setLoadingQuiz(true);
       if (respData) {
         setTimeout(() => {
           setLoadingQuiz(false);
