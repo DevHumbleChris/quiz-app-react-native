@@ -22,13 +22,13 @@ export default function Quiz({ navigation, route: { params } }) {
         <View style={tw`flex-row mb-2 items-center justify-between`}>
           <View>
             <View
-              style={tw`text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-[#887aeb]`}
+              style={tw`text-xs font-semibold py-1 px-2 uppercase rounded-full bg-[#887aeb]`}
             >
               <Text style={tw`text-white`}>Progress</Text>
             </View>
           </View>
           <View>
-            <View style={tw`text-xs font-semibold inline-block text-pink-600`}>
+            <View style={tw`text-xs font-semibold text-pink-600`}>
               <Text style={tw`text-white`}>30%</Text>
             </View>
           </View>

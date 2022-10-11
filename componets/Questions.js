@@ -25,10 +25,7 @@ export default function Questions({ quizes, artImage }) {
         />
       </View>
       <View>
-        <SingleQuiz currentQuizIndex={index + 1} currentQuiz={quizes[index]} totalQuizes={quizes.length} />
-        <View style={tw`my-3`}>
-          <Button mode="contained" onPress={nextQuiz}>Next</Button>
-        </View>
+        <SingleQuiz currentQuizIndex={index + 1} nextQuiz={nextQuiz} currentQuiz={quizes[index]} totalQuizes={quizes.length} />
       </View>
     </View>
   );
