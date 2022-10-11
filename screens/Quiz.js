@@ -27,7 +27,7 @@ export default function Quiz({ navigation, route: { params } }) {
               <Text style={tw`text-white`}>Progress</Text>
             </View>
           </View>
-          <View style={tw`"text-right`}>
+          <View>
             <View style={tw`text-xs font-semibold inline-block text-pink-600`}>
               <Text style={tw`text-white`}>30%</Text>
             </View>
@@ -36,9 +36,9 @@ export default function Quiz({ navigation, route: { params } }) {
         <View
           style={tw`overflow-hidden h-2 mb-4 text-xs flex rounded bg-[#887aeb]`}
         >
-          <View style={{ width: "100%", backgroundColor: "white" }}>
+          <View style={{ width: "50%", backgroundColor: "white" }}>
             <Text
-              styel={tw`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500`}
+              styel={tw`shadow-none flex flex-col text-center text-white justify-center bg-pink-500`}
             ></Text>
           </View>
         </View>
