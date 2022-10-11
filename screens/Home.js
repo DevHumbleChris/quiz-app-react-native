@@ -9,42 +9,50 @@ const categoryOptions = [
   {
     name: "Maths",
     iconName: "square-root-alt",
-    artImage: 'https://ouch-cdn2.icons8.com/aGUQwdaVOw-YuC-YAd10XtNNMi_8Nv0zr_G64w6pQGA/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNzcv/YzYzOTNlZmMtMTRl/MS00YzRiLTk5NTct/ZDU1NWUxMjNiZmEy/LnN2Zw.png'
+    artImage: 'https://ouch-cdn2.icons8.com/aGUQwdaVOw-YuC-YAd10XtNNMi_8Nv0zr_G64w6pQGA/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNzcv/YzYzOTNlZmMtMTRl/MS00YzRiLTk5NTct/ZDU1NWUxMjNiZmEy/LnN2Zw.png',
+    category: 19
   },
   {
     name: "Sports",
     iconName: "volleyball-ball",
-    artImage: 'https://ouch-cdn2.icons8.com/uwjs86tsBwFu_A-QHe0y8tSN7c0CExaL6v9gGJvvDhg/rs:fit:256:482/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTUz/Lzc4MjA0OWIwLTM4/MmItNGFhYi1iZmNk/LTIxNjg4NjRmNDMx/Zi5wbmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/uwjs86tsBwFu_A-QHe0y8tSN7c0CExaL6v9gGJvvDhg/rs:fit:256:482/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTUz/Lzc4MjA0OWIwLTM4/MmItNGFhYi1iZmNk/LTIxNjg4NjRmNDMx/Zi5wbmc.png',
+    category: 21
   },
   {
     name: "Music",
     iconName: "headphones",
-    artImage: 'https://ouch-cdn2.icons8.com/bmh7bFhZflURB1E_rJ_yesld5LLsGTwGWOTfQ2CmKiw/rs:fit:256:291/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNjI0/Lzc0MWVkMWM4LWJj/MGQtNDM0ZC05ZmI1/LTc5NDFhYTVjNzRh/YS5wbmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/bmh7bFhZflURB1E_rJ_yesld5LLsGTwGWOTfQ2CmKiw/rs:fit:256:291/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNjI0/Lzc0MWVkMWM4LWJj/MGQtNDM0ZC05ZmI1/LTc5NDFhYTVjNzRh/YS5wbmc.png',
+    category: 12
   },
   {
     name: "Science",
     iconName: "flask",
-    artImage: 'https://ouch-cdn2.icons8.com/tKSn64YPQRspDqKEtYQflqhv_ALoQUlLP-yC0WjUKY8/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzk0/L2QyZTBlZTcwLTM1/MjAtNGYyNi05Y2U5/LTMwZDE3OWU1ODc3/YS5wbmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/tKSn64YPQRspDqKEtYQflqhv_ALoQUlLP-yC0WjUKY8/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzk0/L2QyZTBlZTcwLTM1/MjAtNGYyNi05Y2U5/LTMwZDE3OWU1ODc3/YS5wbmc.png',
+    category: 17
   },
   {
     name: "History",
     iconName: "landmark",
-    artImage: 'https://ouch-cdn2.icons8.com/-vVVU0ytD19Goilrknwy2AvD8Hdl5hOd0QA_Dfj18ds/rs:fit:256:162/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzE3/LzQ4NmM0ZmJmLTQ0/MWItNDlkOS05NzE1/LTJmYjgxNzQ5Zjg4/OS5wbmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/-vVVU0ytD19Goilrknwy2AvD8Hdl5hOd0QA_Dfj18ds/rs:fit:256:162/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzE3/LzQ4NmM0ZmJmLTQ0/MWItNDlkOS05NzE1/LTJmYjgxNzQ5Zjg4/OS5wbmc.png',
+    category: 23
   },
   {
     name: "Animals",
     iconName: "spider",
-    artImage: 'https://ouch-cdn2.icons8.com/Q_OjCVXGw8kIpafKhKOhv4BXE2ovEdo1GQfDJ-S39pE/rs:fit:256:193/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvOTAz/LzZlMDFkMjc3LTZm/ZmItNGIxNS1iZGRl/LWEyNzdlMzg4NzIx/ZS5wbmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/Q_OjCVXGw8kIpafKhKOhv4BXE2ovEdo1GQfDJ-S39pE/rs:fit:256:193/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvOTAz/LzZlMDFkMjc3LTZm/ZmItNGIxNS1iZGRl/LWEyNzdlMzg4NzIx/ZS5wbmc.png',
+    category: 27
   },
   {
     name: "General Knowlegde",
     iconName: "lightbulb",
-    artImage: 'https://ouch-cdn2.icons8.com/12juZxqBP3K8ih2bmpllngnZ--Y83-HroshN0We8V14/rs:fit:256:262/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNjMx/LzA3ZWRhMWU4LTFi/ODctNGE5Mi1iZjky/LTRmOWRlNzE0M2Iw/OS5zdmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/12juZxqBP3K8ih2bmpllngnZ--Y83-HroshN0We8V14/rs:fit:256:262/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNjMx/LzA3ZWRhMWU4LTFi/ODctNGE5Mi1iZjky/LTRmOWRlNzE0M2Iw/OS5zdmc.png',
+    category: 9
   },
   {
     name: "Video Games",
     iconName: "gamepad",
-    artImage: 'https://ouch-cdn2.icons8.com/adCnEx-6s5l1DLVdECzZU6s5Z33giMBMc8-hm9i_SV4/rs:fit:256:208/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNTMy/Lzc0ZDliMzhlLWYx/OTUtNGJjMC1hNGI2/LWJhNTM2ZWM1YmZi/MS5wbmc.png'
+    artImage: 'https://ouch-cdn2.icons8.com/adCnEx-6s5l1DLVdECzZU6s5Z33giMBMc8-hm9i_SV4/rs:fit:256:208/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNTMy/Lzc0ZDliMzhlLWYx/OTUtNGJjMC1hNGI2/LWJhNTM2ZWM1YmZi/MS5wbmc.png',
+    category: 15
   },
 ];
 
