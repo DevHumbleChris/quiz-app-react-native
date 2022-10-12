@@ -5,8 +5,12 @@ import tw from "twrnc";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import { Button, RadioButton } from "react-native-paper";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setQuizes } from "../store/slices/progressSlice";
 
 const Difficulty = ({ navigation, route: { params } }) => {
+  const quizes = useSelector(state => state.progress.totalQuizes)
+  const dispatch = useDispatch()
   const [difficulties, setDifficulties] = useState([
     { level: "Easy" },
     { level: "Medium" },
@@ -28,6 +32,7 @@ const Difficulty = ({ navigation, route: { params } }) => {
       if (respData.length > 0) {
         setTimeout(() => {
           setLoadingQuiz(false);
+          dispatch(setQuizes(respData))
           navigation.replace("Quiz", {
             name: params.name,
             artImage: params.artImage,

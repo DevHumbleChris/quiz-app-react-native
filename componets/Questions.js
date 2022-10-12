@@ -1,17 +1,20 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Image } from "react-native";
 import React, { useState } from "react";
 import tw from "twrnc";
-import { Chip, Button } from "react-native-paper";
 import SingleQuiz from "./SingleQuiz";
+import { useDispatch, useSelector } from "react-redux";
+import { incrementIndex, resetIndex } from "../store/slices/progressSlice";
 
-export default function Questions({ quizes, artImage, navigation }) {
-  const [quiz, setQuiz] = useState(null);
-  const [index, setIndex] = useState(0)
+export default function Questions({ artImage, navigation }) {
+  const quizes = useSelector(state => state.progress.quizes)
+  const index = useSelector(state => state.progress.index)
+  const dispatch = useDispatch()
   const nextQuiz = () => {
     if (index === quizes.length - 1) {
       navigation.replace('Results')
+      dispatch(resetIndex())
     } else {
-      setIndex(index + 1)
+      dispatch(incrementIndex())
     }
   };
   return (
