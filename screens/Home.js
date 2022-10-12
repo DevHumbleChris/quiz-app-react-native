@@ -1,5 +1,5 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { Avatar } from "react-native-paper";
@@ -79,17 +79,34 @@ const categoryOptions = [
     category: 24
   },
 ];
+const currentHour = new Date().getHours()
+const timeData = [
+  { hour: 22, message: 'Working Late!'},
+  { hour: 18, message: 'Good Evening!'},
+  { hour: 12, message: 'Good Afternoon!'},
+  { hour: 5, message: 'Good Morning!'},
+  { hour: 0, message: 'Whoa, Early Bird!'}
+]
 
 const Home = ({ navigation }) => {
   const selectDifficulty = (category) => {
     navigation.navigate('Difficulty', category)
   }
+  const [timeOfDay, setTimeOfDay] = useState('')
+  useEffect(() => {
+    for (let i = 0; i < timeData.length; i++) {
+      if (currentHour >= timeData[i].hour) {
+        setTimeOfDay(timeData[i].message)
+        break;
+      }
+    }
+  }, [timeOfDay])
   return (
     <SafeAreaView style={tw`flex-1 bg-[#6b5be2]`}>
       <View style={tw`p-4`}>
         <View style={tw`flex-row justify-between`}>
           <View style={tw`my-2`}>
-            <Text style={tw`text-white uppercase`}>Good Morning</Text>
+            <Text style={tw`text-white uppercase`}>{ timeOfDay }</Text>
             <Text style={tw`text-white text-2xl`}>Christopher Odhiambo</Text>
           </View>
           <Avatar.Image

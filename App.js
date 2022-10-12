@@ -7,11 +7,15 @@ import Home from "./screens/Home";
 import Difficulty from "./screens/Difficulty";
 import Quiz from "./screens/Quiz";
 import Results from "./screens/Results";
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <Provider store={store}>
+
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{
@@ -24,6 +28,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
+    </Provider>
   );
 }
 
