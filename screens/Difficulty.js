@@ -22,9 +22,10 @@ const Difficulty = ({ navigation, route: { params } }) => {
       const url = `https://opentdb.com/api.php?amount=10&category=${
         params.category
       }&difficulty=${selectedLevel.toLowerCase()}&type=multiple`;
+      console.log(url)
       const resp = await axios.get(url);
       const respData = resp.data.results;
-      if (respData) {
+      if (respData.length > 0) {
         setTimeout(() => {
           setLoadingQuiz(false);
           navigation.replace("Quiz", {
@@ -33,6 +34,9 @@ const Difficulty = ({ navigation, route: { params } }) => {
             quizes: respData
           });
         }, 1500);
+      } else {
+        alert('is null')
+        setLoadingQuiz(false);
       }
     }
   };

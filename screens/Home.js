@@ -54,6 +54,30 @@ const categoryOptions = [
     artImage: 'https://ouch-cdn2.icons8.com/adCnEx-6s5l1DLVdECzZU6s5Z33giMBMc8-hm9i_SV4/rs:fit:256:208/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNTMy/Lzc0ZDliMzhlLWYx/OTUtNGJjMC1hNGI2/LWJhNTM2ZWM1YmZi/MS5wbmc.png',
     category: 15
   },
+  {
+    name: "Books",
+    iconName: "book-open",
+    artImage: 'https://ouch-cdn2.icons8.com/5IKTAFpyah1B7NZzxao5wlJrmGPGMI_ggeJOT52bFek/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvODY5/LzlkODdjYmQ4LWNi/M2YtNGQ2OS05OTlh/LWI0NjE3YTc0MGE0/ZS5zdmc.png',
+    category: 10
+  },
+  {
+    name: "Computers",
+    iconName: "desktop",
+    artImage: 'https://ouch-cdn2.icons8.com/0tbdvf2KvOdquz8ASIaOIuOQ5lwXpb-7JREPgmJp31Y/rs:fit:256:171/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMzU4/LzNlZjRiZDE0LTU5/NmItNDRlZS04Nzc3/LWM0OTg1MTVmMDUw/My5wbmc.png',
+    category: 18
+  },
+  {
+    name: "Cartoons",
+    iconName: "user-astronaut",
+    artImage: 'https://ouch-cdn2.icons8.com/ektaP1vM9UsuG8dFxlGB-VFZh12-agAXZ4TKa6KIQ_s/rs:fit:256:269/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNDgz/L2QzMTUwNWNiLTEw/NTAtNGI3NC05NDg5/LWJkZGUwMGQ1NmE0/MC5zdmc.png',
+    category: 32
+  },
+  {
+    name: "Politics",
+    iconName: "vihara",
+    artImage: 'https://ouch-cdn2.icons8.com/MtZ149ousIjnuNl5dt4z-grsFTz35z4iZQw9ThFwcbE/rs:fit:256:327/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTgy/L2Q0N2QzNzYxLTFh/YTQtNDA1NC1hYmY4/LTFhZjM4ZTc4M2Rj/Mi5wbmc.png',
+    category: 24
+  },
 ];
 
 const Home = ({ navigation }) => {

@@ -4,11 +4,15 @@ import tw from "twrnc";
 import { Chip, Button } from "react-native-paper";
 import SingleQuiz from "./SingleQuiz";
 
-export default function Questions({ quizes, artImage }) {
+export default function Questions({ quizes, artImage, navigation }) {
   const [quiz, setQuiz] = useState(null);
   const [index, setIndex] = useState(0)
   const nextQuiz = () => {
-    setIndex(index + 1)
+    if (index === quizes.length - 1) {
+      navigation.replace('Results')
+    } else {
+      setIndex(index + 1)
+    }
   };
   return (
     <View style={tw`bg-white rounded-xl p-3`}>

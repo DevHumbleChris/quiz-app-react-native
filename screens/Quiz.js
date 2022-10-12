@@ -43,7 +43,7 @@ export default function Quiz({ navigation, route: { params } }) {
           </View>
         </View>
       </View>
-      <Questions quizes={params.quizes} artImage={params.artImage} />
+      <Questions quizes={params.quizes} artImage={params.artImage} navigation={navigation} />
     </SafeAreaView>
   );
 }
