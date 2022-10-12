@@ -5,7 +5,8 @@ export const progressSlice = createSlice({
     initialState: {
         index: 0,
         totalQuizes: null,
-        quizes: null
+        quizes: null,
+        currentProgressPercentage: null
     },
     reducers: {
         setTotalQuizes: (state, action) => {
@@ -19,9 +20,13 @@ export const progressSlice = createSlice({
         },
         resetIndex: (state) => {
             state.index = 0
+        },
+        setCurrentProgressPercentage: (state) => {
+            const currentQuizIndex = state.index + 1
+            state.currentProgressPercentage = `${Math.floor((currentQuizIndex * 100 ) / state.totalQuizes)}%`
         }
     }
 })
 
-export const { setTotalQuizes, setQuizes, incrementIndex, resetIndex } = progressSlice.actions
+export const { setTotalQuizes, setQuizes, incrementIndex, resetIndex, setCurrentProgressPercentage } = progressSlice.actions
 export default progressSlice.reducer

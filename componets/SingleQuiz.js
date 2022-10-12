@@ -4,17 +4,23 @@ import { Chip, Button } from "react-native-paper";
 import tw from "twrnc";
 import { decode } from "html-entities";
 import _ from "lodash";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentProgressPercentage, setTotalQuizes } from "../store/slices/progressSlice";
 
 export default function SingleQuiz({
   currentQuiz,
   currentQuizIndex,
-  totalQuizes,
   nextQuiz,
 }) {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [answers, setAnswers] = useState([]);
   const [correctIndex, setCorrectIndex] = useState(null);
   const [answered, setAnswered] = useState(false);
+  const dispatch = useDispatch()
+  const totalQuizes = useSelector(state => state.progress.totalQuizes)
+  const quizes = useSelector(state => state.progress.quizes)
+  const currentProgressPercentage = useSelector(state => state.progress.currentProgressPercentage)
+  console.log(currentProgressPercentage)
   useEffect(() => {
     let newAnswers = [
       ...currentQuiz.incorrect_answers,
@@ -23,6 +29,8 @@ export default function SingleQuiz({
     const shuffledAnswers = _.shuffle(newAnswers);
     setCorrectIndex(shuffledAnswers.indexOf(currentQuiz.correct_answer));
     setAnswers(shuffledAnswers);
+    dispatch(setTotalQuizes(quizes.length))
+    dispatch(setCurrentProgressPercentage())
     setAnswered(false);
   }, [currentQuiz]);
   const submitAnswer = (answer) => {

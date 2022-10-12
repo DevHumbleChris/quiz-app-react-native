@@ -32,7 +32,7 @@ export default function Questions({ artImage, navigation }) {
         />
       </View>
       <View>
-        <SingleQuiz currentQuizIndex={index + 1} nextQuiz={nextQuiz} currentQuiz={quizes[index]} totalQuizes={quizes.length} />
+        <SingleQuiz currentQuizIndex={index + 1} nextQuiz={nextQuiz} currentQuiz={quizes[index]}/>
       </View>
     </View>
   );
