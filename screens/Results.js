@@ -3,8 +3,10 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import tw from "twrnc";
+import { useSelector } from "react-redux";
 
 export default function Results({ navigation }) {
+  const quizes = useSelector((state) => state.progress.quizes);
   return (
     <SafeAreaView style={tw`p-3 flex-1`}>
       <View>
@@ -43,9 +45,7 @@ export default function Results({ navigation }) {
               </Text>
             </View>
             <View>
-              <Text style={tw`text-sm uppercase text-gray-500`}>
-                Completion
-              </Text>
+              <Text style={tw`text-sm uppercase text-gray-500`}>Score</Text>
               <Text style={tw`text-lg uppercase text-[#6b5be2]`}>80%</Text>
             </View>
           </View>
@@ -62,31 +62,37 @@ export default function Results({ navigation }) {
               <Text style={tw`text-sm uppercase text-gray-500`}>
                 Points Gain
               </Text>
-              <Text style={tw`text-lg uppercase text-[#6b5be2]`}>80%</Text>
+              <Text style={tw`text-lg uppercase text-[#6b5be2]`}>80</Text>
             </View>
           </View>
           <View style={tw`my-2`}>
             <Text style={tw`text-sm uppercase text-gray-500`}>
               Detailed Results
             </Text>
-            <View
-              style={tw`bg-[#e7e4f9] p-3 my-3 rounded-xl`}
-            >
-              <View style={tw`my-2 flex-row items-center justify-between space-x-2`}>
-                <Text style={tw`bg-white text-[#6b5be2] p-2 rounded-full`}>
-                  1
-                </Text>
-                <View>
-                  <View style={tw`p-1`}>
-                    <Text>Can you name the top EPL current top scorer?</Text>
-                    <View style={tw`flex-row items-center`}>
-                      <Text style={tw`text-gray-500`}>Ans:</Text>
-                      <Text style={tw`text-green-700 mx-2`}>Erling Haaland</Text>
+            <View style={tw`bg-[#e7e4f9] p-3 my-3 rounded-xl`}>
+              {quizes.map(quiz => {
+                return (
+                <View
+                  style={tw`my-2 flex-row items-center justify-between space-x-2`}
+                >
+                  <Text style={tw`bg-white text-[#6b5be2] p-2 rounded-full`}>
+                    1
+                  </Text>
+                  <View>
+                    <View style={tw`p-1`}>
+                      <Text>Can you name the top EPL current top scorer?</Text>
+                      <View style={tw`flex-row items-center`}>
+                        <Text style={tw`text-gray-500`}>Ans:</Text>
+                        <Text style={tw`text-green-700 mx-2`}>
+                          Erling Haaland
+                        </Text>
+                      </View>
                     </View>
                   </View>
+                  <FontAwesomeIcon name="check-circle" size={25} color="green" />
                 </View>
-                <FontAwesomeIcon name="check-circle" size={25} color="green" />
-              </View>
+                )
+              })}
             </View>
           </View>
         </View>
