@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import tw from "twrnc";
 import { useSelector } from "react-redux";
+import { decode } from 'html-entities'
 
 export default function Results({ navigation }) {
   const quizes = useSelector((state) => state.progress.quizes);
@@ -70,21 +71,21 @@ export default function Results({ navigation }) {
               Detailed Results
             </Text>
             <View style={tw`bg-[#e7e4f9] p-3 my-3 rounded-xl`}>
-              {quizes.map(quiz => {
+              {quizes.map((quiz, i) => {
                 return (
                 <View
                   style={tw`my-2 flex-row items-center justify-between space-x-2`}
                 >
                   <Text style={tw`bg-white text-[#6b5be2] p-2 rounded-full`}>
-                    1
+                    { i + 1}
                   </Text>
                   <View>
-                    <View style={tw`p-1`}>
-                      <Text>Can you name the top EPL current top scorer?</Text>
+                    <View style={tw`p-1 w-58`}>
+                      <Text>{decode(quiz.question)}</Text>
                       <View style={tw`flex-row items-center`}>
                         <Text style={tw`text-gray-500`}>Ans:</Text>
                         <Text style={tw`text-green-700 mx-2`}>
-                          Erling Haaland
+                          {decode(quiz.correct_answer)}
                         </Text>
                       </View>
                     </View>

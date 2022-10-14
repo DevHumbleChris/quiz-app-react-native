@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import tw from "twrnc";
 import SingleQuiz from "./SingleQuiz";
 import { useDispatch, useSelector } from "react-redux";
-import { incrementIndex, resetIndex } from "../store/slices/progressSlice";
+import { incrementIndex, resetIndex, calculateScorePercentage } from "../store/slices/progressSlice";
 
 export default function Questions({ artImage, navigation }) {
   const quizes = useSelector(state => state.progress.quizes)
@@ -13,6 +13,7 @@ export default function Questions({ artImage, navigation }) {
     if (index === quizes.length - 1) {
       navigation.replace('Results')
       dispatch(resetIndex())
+      dispatch(calculateScorePercentage())
     } else {
       dispatch(incrementIndex())
     }

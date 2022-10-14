@@ -5,7 +5,7 @@ import tw from "twrnc";
 import { decode } from "html-entities";
 import _ from "lodash";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentProgressPercentage, setTotalQuizes } from "../store/slices/progressSlice";
+import { setAnswerRemarks, setCurrentProgressPercentage, setTotalQuizes } from "../store/slices/progressSlice";
 
 export default function SingleQuiz({
   currentQuiz,
@@ -32,13 +32,22 @@ export default function SingleQuiz({
     dispatch(setTotalQuizes(quizes.length))
     dispatch(setCurrentProgressPercentage())
     setAnswered(false);
+    // dispatch(setAnswerRemarks({
+    //   correctIndex,
+    //   selectedIndex
+    // }))
   }, [currentQuiz]);
-  const submitAnswer = (answer) => {
+  const submitAnswer = (answer, index) => {
     setSelectedAnswer(answer)
+    dispatch(setAnswerRemarks({
+      correctIndex,
+      selectedIndex: index
+    }))
     setTimeout(() => {
       nextQuiz()
     }, 1500)
   }
+  const [selectedIndex, setSelectedIndex] = useState(null)
   return (
     <>
       <View>
@@ -46,12 +55,12 @@ export default function SingleQuiz({
           Question {currentQuizIndex} of {totalQuizes}
         </Text>
         <Text style={tw`my-3 text-lg`}>{decode(currentQuiz.question)}</Text>
-        {answers.map((answer, i) => {
+        {answers.map((answer, index) => {
           return (
-            <TouchableOpacity key={i} style={tw`p-2`}>
+            <TouchableOpacity key={index} style={tw`p-2`}>
               <Chip
                 icon={selectedAnswer === answer ? "check-all" : ""}
-                onPress={() => submitAnswer(answer)}
+                onPress={() => submitAnswer(answer, index)}
               >
                 {decode(answer)}
               </Chip>
