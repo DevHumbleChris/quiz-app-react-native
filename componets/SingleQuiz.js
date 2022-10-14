@@ -32,22 +32,18 @@ export default function SingleQuiz({
     dispatch(setTotalQuizes(quizes.length))
     dispatch(setCurrentProgressPercentage())
     setAnswered(false);
-    // dispatch(setAnswerRemarks({
-    //   correctIndex,
-    //   selectedIndex
-    // }))
   }, [currentQuiz]);
   const submitAnswer = (answer, index) => {
     setSelectedAnswer(answer)
     dispatch(setAnswerRemarks({
       correctIndex,
-      selectedIndex: index
+      selectedIndex: index,
+      currentQuiz
     }))
     setTimeout(() => {
       nextQuiz()
     }, 1500)
   }
-  const [selectedIndex, setSelectedIndex] = useState(null)
   return (
     <>
       <View>

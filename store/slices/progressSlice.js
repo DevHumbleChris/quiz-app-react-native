@@ -9,7 +9,8 @@ export const progressSlice = createSlice({
         currentProgressPercentage: null,
         answerRemarks: '',
         score: 0,
-        scorePercentage: null
+        scorePercentage: null,
+        userResults: []
     },
     reducers: {
         setTotalQuizes: (state, action) => {
@@ -31,10 +32,20 @@ export const progressSlice = createSlice({
         },
         setAnswerRemarks: (state, action) => {
             if (action.payload.correctIndex === action.payload.selectedIndex) {
-                state.answerRemarks = 'Correct'
                 state.score = state.score + 1
+                let newResults = [...state.userResults, {
+                    question: action.payload.currentQuiz.question,
+                    correct_answer: action.payload.currentQuiz.correct_answer,
+                    userResultsRemarks: 'correct'
+                }]
+                state.userResults = newResults
             } else if (action.payload.correctIndex !== action.payload.selectedIndex) {
-                state.answerRemarks = 'Incorrect'
+                let newResults = [...state.userResults, {
+                    question: action.payload.currentQuiz.question,
+                    correct_answer: action.payload.currentQuiz.correct_answer,
+                    userResultsRemarks: 'incorrect'
+                }]
+                state.userResults = newResults
             }
         },
         calculateScorePercentage: (state, action) => {

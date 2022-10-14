@@ -4,10 +4,19 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import tw from "twrnc";
 import { useSelector } from "react-redux";
-import { decode } from 'html-entities'
+import { decode } from "html-entities";
 
 export default function Results({ navigation }) {
-  const quizes = useSelector((state) => state.progress.quizes);
+  const userResults = useSelector((state) => state.progress.userResults);
+  const percentageScore = useSelector(
+    (state) => state.progress.score
+  );
+  const correctAnswers = userResults.filter(
+    (result) => result.userResultsRemarks === "correct"
+  );
+  const incorrectAnswers = userResults.filter(
+    (result) => result.userResultsRemarks === "incorrect"
+  );
   return (
     <SafeAreaView style={tw`p-3 flex-1`}>
       <View>
@@ -42,12 +51,16 @@ export default function Results({ navigation }) {
                 Correct Answer
               </Text>
               <Text style={tw`text-lg uppercase text-[#6b5be2]`}>
-                7 Questions
+                {correctAnswers.length} Questions
               </Text>
             </View>
             <View>
-              <Text style={tw`text-sm uppercase text-gray-500`}>Score</Text>
-              <Text style={tw`text-lg uppercase text-[#6b5be2]`}>80%</Text>
+              <Text style={tw`text-sm uppercase text-gray-500`}>
+                Score Gained
+              </Text>
+              <Text style={tw`text-lg uppercase text-[#6b5be2]`}>
+                {percentageScore * 10}
+              </Text>
             </View>
           </View>
           <View style={tw`flex-row justify-between items-center`}>
@@ -56,12 +69,12 @@ export default function Results({ navigation }) {
                 Incorrect Answer
               </Text>
               <Text style={tw`text-lg uppercase text-[#6b5be2]`}>
-                7 Questions
+                {incorrectAnswers.length} Questions
               </Text>
             </View>
             <View>
               <Text style={tw`text-sm uppercase text-gray-500`}>
-                Points Gain
+                Points Gained
               </Text>
               <Text style={tw`text-lg uppercase text-[#6b5be2]`}>80</Text>
             </View>
@@ -71,35 +84,45 @@ export default function Results({ navigation }) {
               Detailed Results
             </Text>
             <View style={tw`bg-[#e7e4f9] p-3 my-3 rounded-xl`}>
-              {quizes.map((quiz, i) => {
+              {userResults.map((result, i) => {
                 return (
-                <View
-                  style={tw`my-2 flex-row items-center justify-between space-x-2`}
-                >
-                  <Text style={tw`bg-white text-[#6b5be2] p-2 rounded-full`}>
-                    { i + 1}
-                  </Text>
-                  <View>
-                    <View style={tw`p-1 w-58`}>
-                      <Text>{decode(quiz.question)}</Text>
-                      <View style={tw`flex-row items-center`}>
-                        <Text style={tw`text-gray-500`}>Ans:</Text>
-                        <Text style={tw`text-green-700 mx-2`}>
-                          {decode(quiz.correct_answer)}
-                        </Text>
+                  <View
+                    style={tw`my-2 flex-row items-center justify-between space-x-2`}
+                  >
+                    <Text style={tw`bg-white text-[#6b5be2] p-2 rounded-full`}>
+                      {i + 1}
+                    </Text>
+                    <View>
+                      <View style={tw`p-1 w-58`}>
+                        <Text>{decode(result.question)}</Text>
+                        <View style={tw`flex-row items-center`}>
+                          <Text style={tw`text-gray-500`}>Ans:</Text>
+                          <Text style={tw`text-green-700 mx-2`}>
+                            {decode(result.correct_answer)}
+                          </Text>
+                        </View>
                       </View>
                     </View>
+                    <FontAwesomeIcon
+                      name={
+                        result.userResultsRemarks === "correct"
+                          ? "check-circle"
+                          : "times-circle"
+                      }
+                      size={25}
+                      color={
+                        result.userResultsRemarks === "correct" ? "green" : "red"
+                      }
+                    />
                   </View>
-                  <FontAwesomeIcon name="check-circle" size={25} color="green" />
-                </View>
-                )
+                );
               })}
             </View>
           </View>
         </View>
       </ScrollView>
       <View style={tw`mt-auto mb-3 flex-row justify-between items-center`}>
-        <TouchableOpacity style={tw`bg-[#6b5be2] rounded-xl p-2 w-3/4`}>
+        <TouchableOpacity style={tw`bg-[#6b5be2] rounded-xl p-2 w-3/4`} onPress={() => navigation.navigate('Home')}>
           <Text style={tw`text-center text-white text-lg`}>Done</Text>
         </TouchableOpacity>
         <TouchableOpacity
