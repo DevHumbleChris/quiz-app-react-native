@@ -3,11 +3,13 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import tw from "twrnc";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { decode } from "html-entities";
+import { resetIndex, resetUserResults } from "../store/slices/progressSlice";
 
 export default function Results({ navigation }) {
   const userResults = useSelector((state) => state.progress.userResults);
+  const dispatch = useDispatch()
   const percentageScore = useSelector(
     (state) => state.progress.score
   );
@@ -17,13 +19,18 @@ export default function Results({ navigation }) {
   const incorrectAnswers = userResults.filter(
     (result) => result.userResultsRemarks === "incorrect"
   );
+  const closeResultsScreen = () => {
+    dispatch(resetUserResults())
+    dispatch(resetIndex())
+    navigation.navigate("Home")
+  }
   return (
     <SafeAreaView style={tw`p-3 flex-1`}>
       <View>
         <Text style={tw`text-center text-xl mt-2`}>Good Job!</Text>
         <TouchableOpacity
           style={tw`absolute right-0 p-2 rounded-xl`}
-          onPress={() => navigation.navigate("Home")}
+          onPress={closeResultsScreen}
         >
           <FontAwesomeIcon name="times-circle" size={25} color="black" />
         </TouchableOpacity>
@@ -122,7 +129,7 @@ export default function Results({ navigation }) {
         </View>
       </ScrollView>
       <View style={tw`mt-auto mb-3 flex-row justify-between items-center`}>
-        <TouchableOpacity style={tw`bg-[#6b5be2] rounded-xl p-2 w-3/4`} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={tw`bg-[#6b5be2] rounded-xl p-2 w-3/4`} onPress={closeResultsScreen}>
           <Text style={tw`text-center text-white text-lg`}>Done</Text>
         </TouchableOpacity>
         <TouchableOpacity

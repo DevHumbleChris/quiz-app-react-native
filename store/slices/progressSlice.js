@@ -32,12 +32,12 @@ export const progressSlice = createSlice({
         },
         setAnswerRemarks: (state, action) => {
             if (action.payload.correctIndex === action.payload.selectedIndex) {
-                state.score = state.score + 1
                 let newResults = [...state.userResults, {
                     question: action.payload.currentQuiz.question,
                     correct_answer: action.payload.currentQuiz.correct_answer,
                     userResultsRemarks: 'correct'
                 }]
+                state.score = state.score + 1
                 state.userResults = newResults
             } else if (action.payload.correctIndex !== action.payload.selectedIndex) {
                 let newResults = [...state.userResults, {
@@ -52,9 +52,12 @@ export const progressSlice = createSlice({
             let percentageScore = Math.floor((state.score * 100) / state.totalQuizes)
             state.scorePercentage = `${percentageScore}%`
             console.log(state.score, state.scorePercentage)
+        },
+        resetUserResults: (state) => {
+            state.userResults = []
         }
     }
 })
 
-export const { setTotalQuizes, setQuizes, incrementIndex, resetIndex, setCurrentProgressPercentage, setAnswerRemarks, calculateScorePercentage } = progressSlice.actions
+export const { setTotalQuizes, setQuizes, incrementIndex, resetIndex, setCurrentProgressPercentage, setAnswerRemarks, calculateScorePercentage, resetUserResults } = progressSlice.actions
 export default progressSlice.reducer
