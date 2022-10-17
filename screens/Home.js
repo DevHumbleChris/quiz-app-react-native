@@ -4,6 +4,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { Avatar } from "react-native-paper";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
+import axios from "axios";
+import { setQuizes } from "../store/slices/progressSlice";
+import { useDispatch } from "react-redux";
 
 const categoryOptions = [
   {
@@ -92,6 +95,7 @@ const Home = ({ navigation }) => {
   const selectDifficulty = (category) => {
     navigation.navigate('Difficulty', category)
   }
+  const dispatch = useDispatch()
   const [timeOfDay, setTimeOfDay] = useState('')
   useEffect(() => {
     for (let i = 0; i < timeData.length; i++) {
@@ -101,6 +105,23 @@ const Home = ({ navigation }) => {
       }
     }
   }, [timeOfDay])
+  const startRandomTrivia = async () => {
+    const url = 'https://opentdb.com/api.php?amount=10&type=multiple'
+    const resp = await axios.get(url)
+    const respData = resp.data.results;
+    if (respData.length > 0) {
+      setTimeout(() => {
+        dispatch(setQuizes(respData))
+        navigation.replace("Quiz", {
+          name: 'Random Trivia',
+          artImage: 'https://ouch-cdn2.icons8.com/5l3cpKFyCb5BPpuDtW1vsB5StASp8zNF6AlXX1tnr8Q/rs:fit:256:353/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjc1/LzQ4MDUwMGE2LWNk/OGQtNDk4My05OGU2/LTU2ZjEyZGIzODdl/Ni5wbmc.png',
+          quizes: respData
+        });
+      }, 1500);
+    } else {
+      alert('hello')
+    }
+  }
   return (
     <SafeAreaView style={tw`flex-1 bg-[#6b5be2]`}>
       <View style={tw`p-4`}>
@@ -116,12 +137,12 @@ const Home = ({ navigation }) => {
             }}
           />
         </View>
-        <View style={tw`bg-[#ffe0e6] p-2 rounded-2xl my-3`}>
+        <TouchableOpacity onPress={startRandomTrivia} style={tw`bg-[#ffe0e6] p-2 rounded-2xl my-3`}>
           <View style={tw`flex-row justify-between shrink-0`}>
             <Text
               style={tw`bg-[#ff90a3] p-2 rounded-xl h-10 text-white text-center`}
             >
-              Top Trivia
+              Random Trivia
             </Text>
             <Image
               style={{
@@ -135,12 +156,12 @@ const Home = ({ navigation }) => {
             />
           </View>
           <View style={tw`absolute bottom-4 left-3`}>
-            <Text style={tw`text-[#4b0d1a] text-lg`}>Travel Trivia Quiz</Text>
+            <Text style={tw`text-[#4b0d1a] text-lg`}>Test Your Trivia Skills</Text>
             <View>
-              <Text style={tw`text-[#4b0d1a]`}>Music - 5 Quizzes</Text>
+              <Text style={tw`text-[#4b0d1a]`}>10 Quizzes</Text>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={tw`bg-white p-4 rounded-t-3xl flex-1`}>
         <View>
